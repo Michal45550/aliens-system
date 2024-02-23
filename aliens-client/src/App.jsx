@@ -14,7 +14,7 @@ function App() {
     useEffect(() => {
         const intervalId = setInterval(() => {
             api.getAll().then(data => setAliens(data));
-        }, 500);
+        }, 1000);
         return () => clearInterval(intervalId);
     }, []);
 
