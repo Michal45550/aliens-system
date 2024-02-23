@@ -1,9 +1,9 @@
 export const SERVICE_URL = 'http://localhost:8080/api/';
 
 export const AlienTypes = {
-    WARRIOR: 'Warrior',
-    COMMANDER: 'Commander',
-    CHIEF_COMMANDER: 'Chief commander'
+    WARRIOR: {value: "WARRIOR", label: 'Warrior'},
+    COMMANDER: {value: "COMMANDER", label: 'Commander'},
+    CHIEF_COMMANDER: {value: "CHIEF_COMMANDER", label: 'Chief commander'}
 };
 
 export const Weapons = [
@@ -13,9 +13,9 @@ export const Weapons = [
 ];
 
 export const Vehicles = [
-    {value: "BIRD_SCOOTER", label: "Bird scooter", authorized: [AlienTypes.COMMANDER, AlienTypes.CHIEF_COMMANDER]},
-    {value: "MERKAVA_TANK", label: "Merkava tank", authorized: [AlienTypes.COMMANDER, AlienTypes.CHIEF_COMMANDER]},
-    {value: "EGGED_BUS", label: "Egged bus", authorized: [AlienTypes.CHIEF_COMMANDER]}
+    {value: "BIRD_SCOOTER", label: "Bird scooter", authorized: [AlienTypes.COMMANDER.value, AlienTypes.CHIEF_COMMANDER.value]},
+    {value: "MERKAVA_TANK", label: "Merkava tank", authorized: [AlienTypes.COMMANDER.value, AlienTypes.CHIEF_COMMANDER.value]},
+    {value: "EGGED_BUS", label: "Egged bus", authorized: [AlienTypes.CHIEF_COMMANDER.value]}
 ];
 
 export const maxWarriorsForCommander = 3;

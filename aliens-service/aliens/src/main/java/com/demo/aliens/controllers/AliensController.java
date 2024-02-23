@@ -1,8 +1,10 @@
 package com.demo.aliens.controllers;
 
 import com.demo.aliens.beans.AlienBean;
+import com.demo.aliens.exceptions.AlienSystemException;
 import com.demo.aliens.model.Alien;
 import com.demo.aliens.services.AliensService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +25,7 @@ public class AliensController {
     }
 
     @PostMapping
-    public ResponseEntity<Alien> addAlien(@RequestBody Alien alien) {
+    public ResponseEntity<Alien> addAlien(@Valid @RequestBody Alien alien) throws AlienSystemException {
         return ResponseEntity.ok(aliensService.addAlien(alien));
     }
 }

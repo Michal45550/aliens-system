@@ -40,7 +40,8 @@ const NewAlien = ({commanders}) => {
             name: alienData.name,
             commanderId: alienData.commanderId,
             weapon: alienData.weapon,
-            vehicle: alienData.vehicle
+            vehicle: alienData.vehicle,
+            type: alienData.type
         }).then(data => data && (handleClose() && setAlienData(ALIEN_DATA)));
     }
 
@@ -83,12 +84,12 @@ const NewAlien = ({commanders}) => {
                                         variant="outlined"
                                     >
                                         {Object.values(AlienTypes).map((item, index) =>
-                                            <MenuItem value={item} key={index}>{item}</MenuItem>
+                                            <MenuItem value={item.value} key={index}>{item.label}</MenuItem>
                                         )}
                                     </Select>
                                 </FormControl>
                             </Box>
-                            {(alienData.type === AlienTypes.WARRIOR || alienData.type === AlienTypes.COMMANDER) &&
+                            {(alienData.type === AlienTypes.WARRIOR.value || alienData.type === AlienTypes.COMMANDER.value) &&
                                 <Box sx={{m: 1, minWidth: 200}}>
                                     <FormControl fullWidth>
                                         <InputLabel id="commander">Commander</InputLabel>
@@ -102,14 +103,14 @@ const NewAlien = ({commanders}) => {
                                             variant="outlined"
                                         >
                                             {commanders.map((item, index) =>
-                                                (((alienData.type === AlienTypes.WARRIOR && item.commanderId !== null) ||
-                                                        (alienData.type === AlienTypes.COMMANDER && item.commanderId === null)) &&
+                                                (((alienData.type === AlienTypes.WARRIOR.value && item.commanderId !== null) ||
+                                                        (alienData.type === AlienTypes.COMMANDER.value && item.commanderId === null)) &&
                                                     <MenuItem value={item.id} key={index}>{item.name}</MenuItem>
                                                 ))}
                                         </Select>
                                     </FormControl>
                                 </Box>}
-                            {alienData.type === AlienTypes.WARRIOR &&
+                            {alienData.type === AlienTypes.WARRIOR.value &&
                                 <Box sx={{m: 1, minWidth: 200}}>
                                     <FormControl fullWidth>
                                         <InputLabel id="weapon">Weapon</InputLabel>
@@ -128,7 +129,7 @@ const NewAlien = ({commanders}) => {
                                         </Select>
                                     </FormControl>
                                 </Box>}
-                            {(alienData.type === AlienTypes.COMMANDER || alienData.type === AlienTypes.CHIEF_COMMANDER) &&
+                            {(alienData.type === AlienTypes.COMMANDER.value || alienData.type === AlienTypes.CHIEF_COMMANDER.value) &&
                                 <Box sx={{m: 1, minWidth: 200}}>
                                     <FormControl fullWidth>
                                         <InputLabel id="vehicle">Vehicle</InputLabel>

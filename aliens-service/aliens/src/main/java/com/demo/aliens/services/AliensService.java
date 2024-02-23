@@ -1,9 +1,12 @@
 package com.demo.aliens.services;
 
 import com.demo.aliens.beans.AlienBean;
+import com.demo.aliens.exceptions.AlienSystemException;
 import com.demo.aliens.model.Alien;
 import com.demo.aliens.model.enums.Weapon;
 import com.demo.aliens.repositories.AlienRepository;
+import com.demo.aliens.validators.AliensValidator;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,8 @@ import java.util.stream.Collectors;
 public class AliensService {
 
     private final AlienRepository alienRepository;
+
+    private final AliensValidator aliensValidator;
 
     public List<AlienBean> getAll() {
 
@@ -35,7 +40,10 @@ public class AliensService {
                 .collect(Collectors.toList());
     }
 
-    public Alien addAlien(Alien alien) {
+    public Alien addAlien(@Valid Alien alien) throws AlienSystemException {
+
+        aliensValidator.validate(alien);
+
         return alienRepository.save(alien);
     }
 
