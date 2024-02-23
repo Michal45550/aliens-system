@@ -9,7 +9,6 @@ import {maxCommandersForChief, maxWarriorsForCommander} from "./const.js";
 function App() {
 
     const [aliens, setAliens] = useState([]);
-    const [commandsMap, setCommandsMap] = useState({});
     const [availableCommanders, setAvailableCommanders] = useState({});
 
     useEffect(() => {
@@ -21,18 +20,16 @@ function App() {
 
     useEffect(() => {
         const groupedCommands = groupBy(aliens.filter(a => a.commanderId !== null), 'commanderId');
-        const commandsMapValues = mapValues(groupedCommands, val => val.length);
-        setCommandsMap(commandsMapValues);
-    }, [aliens]);
+        const commandsMap = mapValues(groupedCommands, val => val.length);
 
-    useEffect(() => {
         const filteredCommanders = aliens.filter(a => {
             const maxCommands = a.commanderId != null ? maxWarriorsForCommander : maxCommandersForChief;
             const commandsNum = commandsMap[a.id];
             return a.weapon === null && (commandsNum === undefined || commandsNum < maxCommands);
         })
         setAvailableCommanders(filteredCommanders);
-    }, [commandsMap]);
+
+    }, [aliens]);
 
     return (
         <>

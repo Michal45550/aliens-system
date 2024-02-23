@@ -10,7 +10,7 @@ const NewAlien = ({commanders}) => {
 
     const ALIEN_DATA = {
         type: "",
-        name: "",
+        name: null,
         commanderId: null,
         weapon: null,
         vehicle: null
@@ -18,7 +18,6 @@ const NewAlien = ({commanders}) => {
 
     const [open, setOpen] = useState(false);
     const [alienData, setAlienData] = useState(ALIEN_DATA);
-    const [error, setError] = useState('');
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
@@ -67,6 +66,7 @@ const NewAlien = ({commanders}) => {
                                         name="name"
                                         variant="outlined"
                                         value={alienData.name}
+                                        required
                                         onChange={handleInputChange}
                                     />
                                 </FormControl>
@@ -79,6 +79,7 @@ const NewAlien = ({commanders}) => {
                                         name="type"
                                         id="type"
                                         value={alienData.type}
+                                        required
                                         label="Alien Type"
                                         onChange={handleInputChange}
                                         variant="outlined"
@@ -98,6 +99,7 @@ const NewAlien = ({commanders}) => {
                                             name="commanderId"
                                             id="commander"
                                             value={alienData.commanderId}
+                                            required
                                             label="Commander"
                                             onChange={handleInputChange}
                                             variant="outlined"
@@ -119,6 +121,7 @@ const NewAlien = ({commanders}) => {
                                             name="weapon"
                                             id="weapon"
                                             value={alienData.weapon}
+                                            required
                                             label="Weapon"
                                             onChange={handleInputChange}
                                             variant="outlined"
@@ -138,6 +141,7 @@ const NewAlien = ({commanders}) => {
                                             name="vehicle"
                                             id="vehicle"
                                             value={alienData.vehicle}
+                                            required
                                             label="Vehicle"
                                             onChange={handleInputChange}
                                             variant="outlined"
@@ -150,7 +154,7 @@ const NewAlien = ({commanders}) => {
                                     </FormControl>
                                 </Box>}
 
-                            <button id="submit" type="submit" disabled={error !== ''}>Submit</button>
+                            <button id="submit" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
