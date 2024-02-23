@@ -1,7 +1,6 @@
 package com.demo.aliens.controllers;
 
 import com.demo.aliens.beans.AlienBean;
-import com.demo.aliens.exceptions.AlienErrMsg;
 import com.demo.aliens.exceptions.AlienSystemException;
 import com.demo.aliens.model.Alien;
 import com.demo.aliens.model.enums.AlienType;
@@ -15,7 +14,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.demo.aliens.mockData.AliensDataProvider.getAliensBeanList;

@@ -7,16 +7,13 @@ import com.demo.aliens.model.enums.AlienType;
 import com.demo.aliens.model.enums.Weapon;
 import com.demo.aliens.repositories.AlienRepository;
 import com.demo.aliens.validators.AliensValidator;
-import jakarta.validation.Valid;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static com.demo.aliens.mockData.AliensDataProvider.getAliensList;
 import static org.junit.jupiter.api.Assertions.*;
