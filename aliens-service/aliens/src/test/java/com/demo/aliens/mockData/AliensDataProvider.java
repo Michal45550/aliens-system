@@ -1,5 +1,6 @@
 package com.demo.aliens.mockData;
 
+import com.demo.aliens.beans.AlienBean;
 import com.demo.aliens.model.Alien;
 import com.demo.aliens.model.enums.AlienType;
 import com.demo.aliens.model.enums.Vehicle;
@@ -81,6 +82,25 @@ public class AliensDataProvider {
                         .name("alien 333")
                         .vehicle(Vehicle.BIRD_SCOOTER)
                         .type(AlienType.CHIEF_COMMANDER)
+                        .build()
+        );
+    }
+
+    public static List<AlienBean> getAliensBeanList() {
+        return asList(
+                AlienBean.builder()
+                        .id(7)
+                        .name("alien 1")
+                        .commanderId(4L)
+                        .commanderName("alien 2")
+                        .weapon("Pepper spray")
+                        .build(),
+                AlienBean.builder()
+                        .id(8)
+                        .name("alien 11")
+                        .commanderId(4L)
+                        .commanderName("alien 2")
+                        .weapon("Pepper spray")
                         .build()
         );
     }
