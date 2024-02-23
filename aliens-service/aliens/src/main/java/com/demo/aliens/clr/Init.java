@@ -90,9 +90,9 @@ public class Init implements CommandLineRunner {
                 .type(AlienType.CHIEF_COMMANDER)
                 .build();
 
-        aliensService.addAlien(a333);
-       aliensService.addAlien(a33);
         aliensService.addAlien(a3);
+        aliensService.addAlien(a33);
+        aliensService.addAlien(a333);
         aliensService.addAlien(a2);
         aliensService.addAlien(a22);
         aliensService.addAlien(a222);
